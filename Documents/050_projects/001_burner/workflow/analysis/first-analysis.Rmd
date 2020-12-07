@@ -1,0 +1,33 @@
+---
+title: "first-analysis"
+author: "michaelgaunt404"
+date: "2020-12-06"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+Here is some introduction.
+
+```{r}
+library(ggplot2)
+library(magrittr)
+library(billboarder)
+
+```
+
+
+Some more lines of new text.
+
+```{r}
+billboarder() %>% 
+  bb_histogram(
+    data = mtcars, 
+    mapping = bbaes(mpg),
+    range = c(0.5, 120)
+  ) %>% 
+  bb_x_axis(tick = list(fit = FALSE))
+```
+
