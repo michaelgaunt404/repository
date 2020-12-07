@@ -9,9 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="michaelgaunt404" />
 
+<meta name="date" content="2020-12-06" />
 
-<title>Home</title>
+<title>first-analysis</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,11 +21,20 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="site_libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<script src="site_libs/d3-format-1.4.2/d3-format.min.js"></script>
+<script src="site_libs/billboarder-binding-0.2.8/billboarder.js"></script>
+<link href="site_libs/billboard-1.11.1/billboard/billboard.min.css" rel="stylesheet" />
+<link href="site_libs/billboard-1.11.1/billboarder.css" rel="stylesheet" />
+<script src="site_libs/billboard-1.11.1/billboard/billboard.pkgd.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -269,6 +280,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -276,6 +350,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -319,7 +403,9 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">first-analysis</h1>
+<h4 class="author">michaelgaunt404</h4>
+<h4 class="date">2020-12-06</h4>
 
 </div>
 
@@ -347,7 +433,7 @@ $(document).ready(function () {
 <strong>Last updated:</strong> 2020-12-06
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>workflow/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -369,6 +455,66 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
 <p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20201206code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20201206)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20201206code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20201206)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
 </div>
 </div>
 </div>
@@ -522,7 +668,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>Documents/050_projects/001_burner/workflow/analysis/index.Rmd</code>) and HTML (<code>Documents/050_projects/001_burner/workflow/docs/index.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>Documents/050_projects/001_burner/workflow/analysis/first-analysis.Rmd</code>) and HTML (<code>Documents/050_projects/001_burner/workflow/docs/first-analysis.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -548,27 +694,10 @@ Message
 <tbody>
 <tr>
 <td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/michaelgaunt404/repository/a577d96afdc9ae844cabc0afecf70ac745435074/Documents/050_projects/001_burner/workflow/docs/index.html" target="_blank">a577d96</a>
-</td>
-<td>
-michaelgaunt404
-</td>
-<td>
-2020-12-06
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
 Rmd
 </td>
 <td>
-<a href="https://github.com/michaelgaunt404/repository/blob/61b0f1efa8b75b485f3b5d6bd20c7423211f04ea/Documents/050_projects/001_burner/workflow/analysis/index.Rmd" target="_blank">61b0f1e</a>
+<a href="https://github.com/michaelgaunt404/repository/blob/7e0b855d51174e35e64f174b7c38e9aab29c70e8/Documents/050_projects/001_burner/workflow/analysis/first-analysis.Rmd" target="_blank">7e0b855</a>
 </td>
 <td>
 michaelgaunt404
@@ -577,7 +706,7 @@ michaelgaunt404
 2020-12-06
 </td>
 <td>
-Start workflowr project.
+Add my first analysis
 </td>
 </tr>
 </tbody>
@@ -587,7 +716,68 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<p>Welcome to my research website.</p>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>Here is some introduction.</p>
+<pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>Warning: package &#39;ggplot2&#39; was built under R version 3.6.3</code></pre>
+<pre class="r"><code>library(magrittr)
+library(billboarder)</code></pre>
+<p>Some more lines of new text.</p>
+<pre class="r"><code>billboarder() %&gt;% 
+  bb_histogram(
+    data = mtcars, 
+    mapping = bbaes(mpg),
+    range = c(0.5, 120)
+  ) %&gt;% 
+  bb_x_axis(tick = list(fit = FALSE))</code></pre>
+<div class="billboarder html-widget" style="width:100%;height:320px; position: relative;">
+<a id="htmlwidget-b54070d6eeb45b591c5d-export" style="position:absolute; top:0; right:0; display:none; z-index:50;"></a>
+<div id="htmlwidget-b54070d6eeb45b591c5d" class="billboarder html-widget" style="width:100%;height:320px;" width="100%" height="320px"></div>
+</div>
+<script type="application/json" data-for="htmlwidget-b54070d6eeb45b591c5d">{"x":{"bb_opts":{"interaction":{"inputType":{"touch":false}},"data":{"x":"x","json":{"x":[10.5344827586207,11.3448275862069,12.1551724137931,12.9655172413793,13.7758620689655,14.5862068965517,15.3965517241379,16.2068965517241,17.0172413793103,17.8275862068965,18.6379310344828,19.448275862069,20.2586206896552,21.0689655172414,21.8793103448276,22.6896551724138,23.5,24.3103448275862,25.1206896551724,25.9310344827586,26.7413793103448,27.551724137931,28.3620689655172,29.1724137931034,29.9827586206897,30.7931034482759,31.6034482758621,32.4137931034483,33.2241379310345,34.0344827586207],"y":[2,0,0,1,0,2,5,1,1,2,1,3,0,4,1,2,0,1,0,1,0,1,0,0,0,2,0,1,0,1]},"type":"area-step"},"legend":{"show":false},"axis":{"x":{"label":{"text":"mpg"},"tick":{"fit":false,"outer":false,"centered":true}},"y":{"max":null,"padding":null,"tick":{"format":null},"label":{"text":"count"}}},"tooltip":{"format":{"title":"function(i) { var x = (i-0.405) + ' ; ' + (i+0.405); return x; }"}}},"data":null},"evals":["bb_opts.tooltip.format.title"],"jsHooks":[]}</script>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.6.2 (2019-12-12)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 17134)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United States.1252 
+[2] LC_CTYPE=English_United States.1252   
+[3] LC_MONETARY=English_United States.1252
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.1252    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] billboarder_0.2.8 magrittr_2.0.1    ggplot2_3.3.2     workflowr_1.6.2  
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.5        pillar_1.4.7      compiler_3.6.2    later_1.1.0.1    
+ [5] git2r_0.27.1      tools_3.6.2       digest_0.6.27     jsonlite_1.7.1   
+ [9] evaluate_0.14     lifecycle_0.2.0   tibble_3.0.4      gtable_0.3.0     
+[13] pkgconfig_2.0.3   rlang_0.4.8       shiny_1.5.0       rstudioapi_0.13  
+[17] yaml_2.2.1        xfun_0.19         fastmap_1.0.1     withr_2.3.0      
+[21] stringr_1.4.0     dplyr_1.0.2       knitr_1.30        htmlwidgets_1.5.2
+[25] generics_0.1.0    fs_1.5.0          vctrs_0.3.5       rprojroot_2.0.2  
+[29] grid_3.6.2        tidyselect_1.1.0  glue_1.4.2        R6_2.5.0         
+[33] rmarkdown_2.5     purrr_0.3.4       whisker_0.4       scales_1.1.1     
+[37] promises_1.1.1    ellipsis_0.3.1    htmltools_0.5.0   xtable_1.8-4     
+[41] mime_0.9          colorspace_2.0-0  httpuv_1.5.4      labeling_0.4.2   
+[45] stringi_1.5.3     munsell_0.5.0     crayon_1.3.4     </code></pre>
+</div>
+</div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
@@ -603,6 +793,8 @@ footer is added to webpages before the MathJax javascript. -->
 </script>
 
 
+</div>
+</div>
 
 </div>
 
@@ -635,6 +827,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
